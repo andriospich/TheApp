@@ -9,7 +9,7 @@ public class QueryProcessor {
         }
         else
             if (query.contains("football")) {
-                return "The best player in the world is ronaldo...after Zidane.";
+                return "The best player in the world is ronaldo...after neymar.";
             }
             else
                 if (query.contains("cheese")) {
