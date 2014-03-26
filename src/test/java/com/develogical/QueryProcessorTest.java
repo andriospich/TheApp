@@ -54,6 +54,12 @@ public class QueryProcessorTest {
     	String test = "dh3h43s1: which is both a square and a cube: 454, 9";
     	
         assertThat(queryProcessor.process(test), containsString(""));
-    }    
-    
+    }
+
+    @Test
+    public void processBanana() throws Exception {
+        String test = "dh3h43s1: what is the color of banana";
+        assertThat(queryProcessor.process(test), containsString("yellow"));
+    }
+
 }

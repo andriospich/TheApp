@@ -11,6 +11,7 @@ public class QueryProcessor {
 
     public QueryProcessor() {
         IQueryProcessors.add(new PlusMultiplyProcessor());
+        IQueryProcessors.add(new BananaIQueryProcessor());
     }
 
     public String process(String query) {
