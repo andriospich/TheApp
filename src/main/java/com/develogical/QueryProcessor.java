@@ -70,7 +70,13 @@ public class QueryProcessor {
         	if ((resFirstS == Math.floor(resFirstS)) && (resFirstC == Math.floor(resFirstC)))
         		return String.valueOf(first);
 
-      		return String.valueOf(second);
+        	double resSecS = Math.pow(second,1./2.);
+        	double resSecC = Math.pow(second,1./3.);
+        	
+        	if ((resSecS == Math.floor(resSecS)) && (resSecC == Math.floor(resSecC)))
+        		return String.valueOf(second);
+        	
+      		return "";
 
     	}
     	return String.valueOf(result);
