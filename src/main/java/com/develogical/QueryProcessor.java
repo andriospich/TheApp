@@ -1,9 +1,17 @@
 package com.develogical;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class QueryProcessor {
+
+    static List<Processor> processors = new ArrayList<Processor>();
+
+    static public void registerProcessor(Processor proc) {
+        processors.add(proc);
+    }
 
     public String process(String query) {
     	
@@ -37,6 +45,12 @@ public class QueryProcessor {
                                 if (query.contains("multiplied")) {
                                     return processMultiply(query);
                                 }
+
+        for (Processor processor : processors) {
+            if (processor.matchRequest(query)) {
+                return processor.result(query);
+            }
+        }
         
     	System.out.println("<<<ACHTUNG!!!>> THIS IS NOT MANAGED: " + query);
 

@@ -1,10 +1,9 @@
 package com.develogical;
 
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
+import static org.junit.matchers.StringContains.*;
 import org.junit.Test;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-import static org.junit.matchers.StringContains.containsString;
 
 public class QueryProcessorTest {
 
@@ -49,6 +48,12 @@ public class QueryProcessorTest {
     	String test = "dh3h43s1: numbers largest: 100, 20, 70";
         assertThat(queryProcessor.process(test), containsString("100"));
     }    
+
+    @Test
+    public void processBanana() throws Exception {
+    	String test = "dh3h43s1: what is the color of banana";
+        assertThat(queryProcessor.process(test), containsString("yellow"));
+    }
 
     @Test
     public void processSquareCube() throws Exception {
