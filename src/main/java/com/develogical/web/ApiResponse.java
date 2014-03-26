@@ -12,6 +12,7 @@ public class ApiResponse {
 
     public ApiResponse(String query) {
         this.query = query;
+        
     }
 
     public void writeTo(HttpServletResponse resp) throws IOException {

@@ -7,10 +7,10 @@ import java.util.regex.Pattern;
 
 public class QueryProcessor {
 
-    static List<IQueryProcessor> IQueryProcessors = new ArrayList<IQueryProcessor>();
+    private List<IQueryProcessor> IQueryProcessors = new ArrayList<IQueryProcessor>();
 
-    static public void registerProcessor(IQueryProcessor proc) {
-        IQueryProcessors.add(proc);
+    public QueryProcessor() {
+        IQueryProcessors.add(new PlusMultiplyProcessor());
     }
 
     public String process(String query) {
@@ -49,18 +49,6 @@ public class QueryProcessor {
         return "";
     }
     
-    private String processMultiply(String query) {
-    	Pattern pattern = Pattern.compile(".*? (\\d+) multiplied by (\\d+)");
-    	Matcher matcher = pattern.matcher(query);
-    	int result = 0;
-    	if (matcher.matches()) {
-        	String group1 = matcher.group(1);
-        	String group2 = matcher.group(2);
-        	result = Integer.parseInt(group1) * Integer.parseInt(group2);
-        	
-    	}
-    	return String.valueOf(result);
-	}
 
 	private String processSquareCube(String query) {
     	Pattern pattern = Pattern.compile(".*? (\\d+), (\\d+)");
@@ -88,19 +76,6 @@ public class QueryProcessor {
     	return String.valueOf(result);
 	}
 
-	public String processPlus(String query)
-    {
-    	Pattern pattern = Pattern.compile(".*? (\\d+) plus (\\d+)");
-    	Matcher matcher = pattern.matcher(query);
-    	int result = 0;
-    	if (matcher.matches()) {
-        	String group1 = matcher.group(1);
-        	String group2 = matcher.group(2);
-        	result += Integer.parseInt(group1) + Integer.parseInt(group2);
-        	
-    	}
-    	return String.valueOf(result);
-    }
 
     public String processLargest(String query)
     {

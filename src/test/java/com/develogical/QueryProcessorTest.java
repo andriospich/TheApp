@@ -28,7 +28,7 @@ public class QueryProcessorTest {
     public void knowsAboutCheese() throws Exception {
         assertThat(queryProcessor.process("cheese"), containsString("good"));
     }    
-/*
+
     @Test
     public void processPlus() throws Exception {
     	String test = "dh3h43s1: what is 16 plus 1";
@@ -42,7 +42,7 @@ public class QueryProcessorTest {
     	
         assertThat(queryProcessor.process(test), containsString("32"));
     }    
-*/
+
     @Test
     public void processLargest() throws Exception {
     	String test = "dh3h43s1: numbers largest: 100, 20, 70";
