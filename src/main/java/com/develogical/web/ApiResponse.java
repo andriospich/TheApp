@@ -18,6 +18,7 @@ public class ApiResponse {
     public void writeTo(HttpServletResponse resp) throws IOException {
         resp.setContentType("text/plain");
         PrintWriter writer = resp.getWriter();
-        writer.println(new QueryProcessor().process(query));
+        //writer.println(new QueryProcessor().process(query));
+        writer.println("potato");
     }
 }
