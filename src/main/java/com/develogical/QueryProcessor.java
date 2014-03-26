@@ -7,11 +7,12 @@ import java.util.regex.Pattern;
 
 public class QueryProcessor {
 
-    private List<IQueryProcessor> IQueryProcessors = new ArrayList<IQueryProcessor>();
+    private List<IQueryProcessor> processors = new ArrayList<IQueryProcessor>();
 
     public QueryProcessor() {
-        IQueryProcessors.add(new PlusMultiplyProcessor());
-        IQueryProcessors.add(new BananaIQueryProcessor());
+        processors.add(new PlusMultiplyProcessor());
+        processors.add(new FibonacciProcessor());
+        processors.add(new BananaProcessor());
     }
 
     public String process(String query) {
@@ -39,7 +40,7 @@ public class QueryProcessor {
                             return processSquareCube(query);
                         }
                   
-        for (IQueryProcessor IQueryProcessor : IQueryProcessors) {
+        for (IQueryProcessor IQueryProcessor : processors) {
             if (IQueryProcessor.matchRequest(query)) {
                 return IQueryProcessor.result(query);
             }
@@ -56,7 +57,7 @@ public class QueryProcessor {
     	Matcher matcher = pattern.matcher(query);
     	int result = 0;
     	if (matcher.matches()) {
-        	int first = Integer.parseInt( matcher.group(1));
+        	int first = Integer.parseInt(matcher.group(1));
         	int second = Integer.parseInt(matcher.group(2));
         	
         	double resFirstS = Math.pow(first,1./2.);

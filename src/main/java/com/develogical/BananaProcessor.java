@@ -1,6 +1,6 @@
 package com.develogical;
 
-public class BananaIQueryProcessor implements IQueryProcessor {
+public class BananaProcessor implements IQueryProcessor {
 
     public boolean matchRequest(String query) {
         return query.contains("banana");
