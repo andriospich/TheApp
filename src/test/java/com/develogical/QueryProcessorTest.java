@@ -29,4 +29,18 @@ public class QueryProcessorTest {
     public void knowsAboutCheese() throws Exception {
         assertThat(queryProcessor.process("cheese"), containsString("good"));
     }    
+
+    @Test
+    public void processPlus() throws Exception {
+    	String test = "dh3h43s1: what is 5 plus 7";
+    	
+    	
+        assertThat(queryProcessor.process(test), containsString("12"));
+    }    
+
+    @Test
+    public void processLargest() throws Exception {
+        assertThat(queryProcessor.process("cheese"), containsString("good"));
+    }    
+
 }

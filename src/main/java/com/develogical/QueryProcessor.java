@@ -1,5 +1,8 @@
 package com.develogical;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class QueryProcessor {
 
     public String process(String query) {
@@ -18,7 +21,25 @@ public class QueryProcessor {
                 if (query.contains("cheese")) {
                     return "Cheese is very good";
                 }
+                else
+                    if (query.contains("plus")) {
+                        return processPlus(query);
+                    }
 
         return "";
+    }
+    
+    public String processPlus(String query)
+    {
+    	Pattern pattern = Pattern.compile(".*(\\d+) plus (\\d+)");
+    	Matcher matcher = pattern.matcher(query);
+    	int result = 0;
+    	if (matcher.matches()) {
+        	String group1 = matcher.group(1);
+        	String group2 = matcher.group(2);
+        	result += Integer.parseInt(group1) + Integer.parseInt(group2);
+        	
+    	}
+    	return String.valueOf(result);
     }
 }
