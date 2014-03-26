@@ -32,10 +32,10 @@ public class QueryProcessorTest {
 
     @Test
     public void processPlus() throws Exception {
-    	String test = "dh3h43s1: what is 5 plus 7";
+    	String test = "dh3h43s1: what is 16 plus 1";
     	
     	
-        assertThat(queryProcessor.process(test), containsString("12"));
+        assertThat(queryProcessor.process(test), containsString("17"));
     }    
 
     @Test

@@ -35,7 +35,7 @@ public class QueryProcessor {
     
     public String processPlus(String query)
     {
-    	Pattern pattern = Pattern.compile(".*(\\d+) plus (\\d+)");
+    	Pattern pattern = Pattern.compile(".*? (\\d+) plus (\\d+)");
     	Matcher matcher = pattern.matcher(query);
     	int result = 0;
     	if (matcher.matches()) {
