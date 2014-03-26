@@ -30,6 +30,8 @@ public class QueryProcessor {
                             return processLargest(query);
                         }
 
+    	System.out.println("<<<ACHTUNG!!!>> THIS IS NOT MANAGED: " + query);
+
         return "";
     }
     
