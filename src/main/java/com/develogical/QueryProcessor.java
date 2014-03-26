@@ -19,6 +19,8 @@ public class QueryProcessor {
     	
     	System.out.println("Our query is: " + query);
     	
+    	return "potato";
+    	/*
         if (query.contains("programming")) {
             return "Computer programming is the comprehensive process that leads from an original " 
                    + "formulation of a computing problem to executable programs.";
@@ -49,6 +51,7 @@ public class QueryProcessor {
     	System.out.println("<<<ACHTUNG!!!>> THIS IS NOT MANAGED: " + query);
 
         return "";
+        */
     }
     
 
