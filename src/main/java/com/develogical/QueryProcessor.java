@@ -33,13 +33,30 @@ public class QueryProcessor {
                             if (query.contains("square and a cube")) {
                                 return processSquareCube(query);
                             }
+                            else
+                                if (query.contains("multiplied")) {
+                                    return processMultiply(query);
+                                }
         
     	System.out.println("<<<ACHTUNG!!!>> THIS IS NOT MANAGED: " + query);
 
         return "";
     }
     
-    private String processSquareCube(String query) {
+    private String processMultiply(String query) {
+    	Pattern pattern = Pattern.compile(".*? (\\d+) multiplied by (\\d+)");
+    	Matcher matcher = pattern.matcher(query);
+    	int result = 0;
+    	if (matcher.matches()) {
+        	String group1 = matcher.group(1);
+        	String group2 = matcher.group(2);
+        	result = Integer.parseInt(group1) * Integer.parseInt(group2);
+        	
+    	}
+    	return String.valueOf(result);
+	}
+
+	private String processSquareCube(String query) {
     	Pattern pattern = Pattern.compile(".*? (\\d+), (\\d+)");
     	Matcher matcher = pattern.matcher(query);
     	int result = 0;
@@ -47,8 +64,8 @@ public class QueryProcessor {
         	int first = Integer.parseInt( matcher.group(1));
         	int second = Integer.parseInt(matcher.group(2));
         	
-        	double resFirstS = Math.pow(first,1/2);
-        	double resFirstC = Math.pow(first,1/3);
+        	double resFirstS = Math.pow(first,1./2.);
+        	double resFirstC = Math.pow(first,1./3.);
         	
         	if ((resFirstS == Math.floor(resFirstS)) && (resFirstC == Math.floor(resFirstC)))
         		return String.valueOf(first);

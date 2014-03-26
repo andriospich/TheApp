@@ -38,6 +38,13 @@ public class QueryProcessorTest {
     }    
 
     @Test
+    public void processMultiply() throws Exception {
+    	String test = "dh3h43s1: what is 16 multiplied by 2";
+    	
+        assertThat(queryProcessor.process(test), containsString("32"));
+    }    
+
+    @Test
     public void processLargest() throws Exception {
     	String test = "dh3h43s1: numbers largest: 100, 20, 70";
         assertThat(queryProcessor.process(test), containsString("100"));
@@ -47,9 +54,10 @@ public class QueryProcessorTest {
     public void processSquareCube() throws Exception {
     	String test = "dh3h43s1: which is both a square and a cube: 454, 9";
     	
-        assertThat(queryProcessor.process(test), containsString("454"));
+        assertThat(queryProcessor.process(test), containsString("9"));
     }    
     
+    @Test
     public void processSquareCubeBigger() throws Exception {
     	String test = "dh3h43s1: which is both a square and a cube: 9, 454";
     	
