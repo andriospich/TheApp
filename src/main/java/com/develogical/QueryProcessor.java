@@ -7,14 +7,14 @@ import java.util.regex.Pattern;
 
 public class QueryProcessor {
 
-    static List<IQueryProcessor> IQueryProcessors = new ArrayList<IQueryProcessor>();
+    static List<IQueryProcessor> processors = new ArrayList<IQueryProcessor>();
 
     static public void registerProcessor(IQueryProcessor proc) {
-        IQueryProcessors.add(proc);
+        processors.add(proc);
     }
 
     public String process(String query) {
-    	
+        BananaIQueryProcessor.register();
     	System.out.println("Our query is: " + query);
     	
         if (query.contains("programming")) {
@@ -38,9 +38,9 @@ public class QueryProcessor {
                             return processSquareCube(query);
                         }
                   
-        for (IQueryProcessor IQueryProcessor : IQueryProcessors) {
-            if (IQueryProcessor.matchRequest(query)) {
-                return IQueryProcessor.result(query);
+        for (IQueryProcessor processor : processors) {
+            if (processor.matchRequest(query)) {
+                return processor.result(query);
             }
         }
         
