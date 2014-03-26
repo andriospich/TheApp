@@ -30,22 +30,14 @@ public class QueryProcessor {
                     return "Cheese is very good";
                 }
                 else
-                    if (query.contains("plus")) {
-                        return processPlus(query);
+                    if (query.contains("largest")) {
+                        return processLargest(query);
                     }
                     else
-                        if (query.contains("largest")) {
-                            return processLargest(query);
+                        if (query.contains("square and a cube")) {
+                            return processSquareCube(query);
                         }
-                        else
-                            if (query.contains("square and a cube")) {
-                                return processSquareCube(query);
-                            }
-                            else
-                                if (query.contains("multiplied")) {
-                                    return processMultiply(query);
-                                }
-
+                  
         for (IQueryProcessor IQueryProcessor : IQueryProcessors) {
             if (IQueryProcessor.matchRequest(query)) {
                 return IQueryProcessor.result(query);
