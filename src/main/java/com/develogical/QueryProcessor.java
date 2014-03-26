@@ -3,6 +3,9 @@ package com.develogical;
 public class QueryProcessor {
 
     public String process(String query) {
+    	
+    	System.out.println("Our query is: " + query);
+    	
         if (query.contains("programming")) {
             return "Computer programming is the comprehensive process that leads from an original " 
                    + "formulation of a computing problem to executable programs.";
