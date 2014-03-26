@@ -29,13 +29,37 @@ public class QueryProcessor {
                         if (query.contains("largest")) {
                             return processLargest(query);
                         }
-
+                        else
+                            if (query.contains("square and a cube")) {
+                                return processSquareCube(query);
+                            }
+        
     	System.out.println("<<<ACHTUNG!!!>> THIS IS NOT MANAGED: " + query);
 
         return "";
     }
     
-    public String processPlus(String query)
+    private String processSquareCube(String query) {
+    	Pattern pattern = Pattern.compile(".*? (\\d+), (\\d+)");
+    	Matcher matcher = pattern.matcher(query);
+    	int result = 0;
+    	if (matcher.matches()) {
+        	int first = Integer.parseInt( matcher.group(1));
+        	int second = Integer.parseInt(matcher.group(2));
+        	
+        	double resFirstS = Math.pow(first,1/2);
+        	double resFirstC = Math.pow(first,1/3);
+        	
+        	if ((resFirstS == Math.floor(resFirstS)) && (resFirstC == Math.floor(resFirstC)))
+        		return String.valueOf(first);
+
+      		return String.valueOf(second);
+
+    	}
+    	return String.valueOf(result);
+	}
+
+	public String processPlus(String query)
     {
     	Pattern pattern = Pattern.compile(".*? (\\d+) plus (\\d+)");
     	Matcher matcher = pattern.matcher(query);
