@@ -7,10 +7,10 @@ import java.util.regex.Pattern;
 
 public class QueryProcessor {
 
-    static List<Processor> processors = new ArrayList<Processor>();
+    static List<IQueryProcessor> IQueryProcessors = new ArrayList<IQueryProcessor>();
 
-    static public void registerProcessor(Processor proc) {
-        processors.add(proc);
+    static public void registerProcessor(IQueryProcessor proc) {
+        IQueryProcessors.add(proc);
     }
 
     public String process(String query) {
@@ -46,9 +46,9 @@ public class QueryProcessor {
                                     return processMultiply(query);
                                 }
 
-        for (Processor processor : processors) {
-            if (processor.matchRequest(query)) {
-                return processor.result(query);
+        for (IQueryProcessor IQueryProcessor : IQueryProcessors) {
+            if (IQueryProcessor.matchRequest(query)) {
+                return IQueryProcessor.result(query);
             }
         }
         
