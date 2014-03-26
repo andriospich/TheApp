@@ -40,7 +40,8 @@ public class QueryProcessorTest {
 
     @Test
     public void processLargest() throws Exception {
-        assertThat(queryProcessor.process("cheese"), containsString("good"));
+    	String test = "dh3h43s1: numbers largest: 100, 20, 70";
+        assertThat(queryProcessor.process(test), containsString("100"));
     }    
 
 }

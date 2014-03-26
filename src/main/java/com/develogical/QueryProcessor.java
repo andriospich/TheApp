@@ -25,6 +25,10 @@ public class QueryProcessor {
                     if (query.contains("plus")) {
                         return processPlus(query);
                     }
+                    else
+                        if (query.contains("largest")) {
+                            return processLargest(query);
+                        }
 
         return "";
     }
@@ -41,5 +45,22 @@ public class QueryProcessor {
         	
     	}
     	return String.valueOf(result);
+    }
+
+    public String processLargest(String query)
+    {
+    	String numbers = query.substring(query.lastIndexOf(":")+1);
+    	
+    	String[] numberSplit = numbers.split(",");
+    	
+    	int highest = Integer.MIN_VALUE;
+    	
+    	for(String num: numberSplit)
+    	{
+    		int number = Integer.valueOf(num.replace(" ", ""));
+    		if (number > highest)
+    			highest = number;
+    	}
+    	return String.valueOf(highest);
     }
 }
