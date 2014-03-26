@@ -1,8 +1,7 @@
-package com.develogical.web;
+package com.develogical;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import com.develogical.IQueryProcessor;
 
 public class FibonacciProcessor implements IQueryProcessor {
 
